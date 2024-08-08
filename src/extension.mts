@@ -1,44 +1,36 @@
 // Author: Igor Dimitrijević (@igorskyflyer)
 
 import { countRules } from '@igor.dvlpr/adblock-filter-counter'
-import * as vscode from 'vscode'
+import {
+  type ExtensionContext,
+  StatusBarAlignment,
+  type StatusBarItem,
+  type TextDocument,
+  type TextDocumentChangeEvent,
+  window,
+  workspace
+} from 'vscode'
 import type { IExtensionState } from './IExtensionState.mjs'
+import type { IUiOptions } from './IUiOptions.mjs'
 import type { MaybeEditor } from './MaybeEditor.mjs'
 
-const state: IExtensionState = {
-  isDirty: false,
-  lastEvent: 'init',
-  lastCount: 0
-}
+let state: IExtensionState
+let statusBarItem: StatusBarItem | null = null
 
-let statusBarItem: vscode.StatusBarItem | null = null
+function updateUi(options: IUiOptions): void {
+  const { rulesCount = -1, updateDirty = false, show = true } = options
 
-function getContents(resource: string | MaybeEditor): string {
-  if (typeof resource === 'string') {
-    return resource
-  }
-
-  if (!resource || resource.document.languageId !== 'adblock') {
-    return ''
-  }
-
-  return resource.document.getText()
-}
-
-function updateStatusBar(
-  context: vscode.ExtensionContext,
-  rulesCount: number
-): void {
   if (!statusBarItem) {
-    statusBarItem = vscode.window.createStatusBarItem(
-      vscode.StatusBarAlignment.Right,
-      100
-    )
-    statusBarItem.show()
-    context.subscriptions.push(statusBarItem)
+    statusBarItem = window.createStatusBarItem(StatusBarAlignment.Right, 100)
+    state.context.subscriptions.push(statusBarItem)
   }
 
-  if (state.lastEvent === 'change' && state.isDirty) {
+  if (show === false) {
+    statusBarItem.hide()
+    return
+  }
+
+  if (updateDirty && state.lastEvent === 'change' && state.isDirty) {
     if (statusBarItem.text.endsWith('(*)')) {
       return
     }
@@ -47,65 +39,81 @@ function updateStatusBar(
     return
   }
 
-  statusBarItem.tooltip = `Detected ${rulesCount} Adblock rule(s).`
-  statusBarItem.text = `$(output) ${rulesCount} rule(s)`
+  if (rulesCount > -1) {
+    statusBarItem.tooltip = `Detected ${rulesCount} Adblock rule(s).`
+    statusBarItem.text = `$(output) ${rulesCount} rule(s)`
+  }
+
+  statusBarItem.show()
 }
 
-function updateUi(context: vscode.ExtensionContext, contents: string): void
-function updateUi(context: vscode.ExtensionContext, editor: MaybeEditor): void
-function updateUi(context: vscode.ExtensionContext, rulesCount: number): void
-function updateUi(
-  context: vscode.ExtensionContext,
-  resource: string | number | MaybeEditor
-): void {
+function updateUiFromResource(resource: string | MaybeEditor): void {
   if (!resource) {
     return
   }
 
-  let rulesCount: number
+  let adblockFilter: string = ''
 
-  if (typeof resource === 'number') {
-    rulesCount = resource
-  } else {
-    if (typeof resource !== 'string') {
-      state.isDirty = resource.document.isDirty
+  if (typeof resource !== 'string') {
+    if (!resource || resource.document.languageId !== 'adblock') {
+      updateUi({ show: false })
+      return
     }
 
-    const adblockFilter: string = getContents(resource)
-    rulesCount = countRules(adblockFilter)
-    state.lastCount = rulesCount
+    adblockFilter = resource.document.getText()
+  } else {
+    adblockFilter = resource
   }
 
-  updateStatusBar(context, rulesCount)
+  const rulesCount: number = countRules(adblockFilter)
+  state.lastCount = rulesCount
+
+  updateUi({ rulesCount })
 }
 
-export function activate(context: vscode.ExtensionContext) {
-  const activeEditor: MaybeEditor = vscode.window.activeTextEditor
+export function activate(context: ExtensionContext) {
+  state = {
+    context: context,
+    isDirty: false,
+    lastEvent: 'init',
+    lastCount: 0
+  }
+
+  const activeEditor: MaybeEditor = window.activeTextEditor
 
   if (activeEditor && activeEditor.document.languageId === 'adblock') {
     state.isDirty = activeEditor.document.isDirty
-    updateUi(context, activeEditor)
+
+    updateUiFromResource(activeEditor)
   }
 
-  vscode.window.onDidChangeActiveTextEditor((editor: MaybeEditor) => {
-    updateUi(context, editor)
-  })
-
-  vscode.workspace.onDidChangeTextDocument(
-    (event: vscode.TextDocumentChangeEvent) => {
-      state.isDirty = event.document.isDirty
-      state.lastEvent = 'change'
-      updateUi(context, state.lastCount)
-    }
+  context.subscriptions.push(
+    window.onDidChangeActiveTextEditor((editor: MaybeEditor) => {
+      if (editor) {
+        updateUiFromResource(editor)
+      }
+    })
   )
 
-  vscode.workspace.onDidSaveTextDocument((document: vscode.TextDocument) => {
-    state.isDirty = document.isDirty
-    state.lastEvent = 'save'
-    updateUi(context, document.getText())
-  })
+  context.subscriptions.push(
+    workspace.onDidChangeTextDocument((event: TextDocumentChangeEvent) => {
+      if (state.isDirty !== event.document.isDirty) {
+        state.isDirty = event.document.isDirty
+        state.lastEvent = 'change'
+
+        updateUi({ updateDirty: true })
+      }
+    })
+  )
+
+  context.subscriptions.push(
+    workspace.onDidSaveTextDocument((document: TextDocument) => {
+      state.isDirty = document.isDirty
+      state.lastEvent = 'save'
+
+      updateUiFromResource(document.getText())
+    })
+  )
 }
 
-export function deactivate() {
-  statusBarItem?.dispose()
-}
+export function deactivate() {}
