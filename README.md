@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/igorskyflyer/vscode-adblock-rules-counter/main/assets/extension.png" alt="Adblock rules counter icon" width="128" height="128">
+  <img src="https://raw.githubusercontent.com/igorskyflyer/vscode-adblock-rules-counter/main/assets/extension.png" alt="Adblock rules counter icon">
 </div>
 
 <h1 align="center">Adblock rules counter for Visual Studio Code</h1>
