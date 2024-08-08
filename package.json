@@ -21,9 +21,10 @@
     },
     "icon": "assets/extension.png",
     "galleryBanner": {
-        "color": "#5065E5",
+        "color": "#EDEDED",
         "theme": "dark"
     },
+    "markdown": "standard",
     "scripts": {
         "base": "esbuild src/extension.mts --bundle --outfile=dist/extension.js --format=cjs --platform=node --external:vscode --target=node20",
         "dev": "npm run -S base -- --sourcemap",
