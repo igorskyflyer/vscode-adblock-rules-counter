@@ -55,7 +55,7 @@
 
 - 🛸 adds a Statusbar item with the count of the Adblock rules in the currently open file
 - 🪁 lightweight extension, fast activation time
-- 🧶 does **NOT** validate Adblock rules (**currently**)
+- 🧶 does **NOT** validate Adblock rules (*currently*)
 
 
 <br>
