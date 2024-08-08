@@ -67,7 +67,9 @@ Install the extension and open an Adblock filter project then navigate to any te
 <br>
 
 > [!NOTE]
-> This extension requires that the Adblock language extension is installed. Currently, only [Adblock/AdGuard/uBlock filters grammar](https://marketplace.visualstudio.com/items?itemName=adguard.adblock) is available.
+> This extension requires that an extension that provides language support for Adblock files is also installed.
+>
+> Currently, only [Adblock/AdGuard/uBlock filters grammar](https://marketplace.visualstudio.com/items?itemName=adguard.adblock) is available.
 >
 
 ---
