@@ -73,25 +73,33 @@ Licensed under the MIT license which is available here, [MIT license](https://gi
 
 ## 🧬 Related
 
-[]()
+[@igor.dvlpr/vscode-folderpicker](https://www.npmjs.com/package/@igor.dvlpr/vscode-folderpicker)
 
-> __
+> _✨ Provides a custom Folder Picker API + UI for Visual Studio Code. 🎨_
 
-[]()
+<br>
 
-> __
+[@igor.dvlpr/adblock-header-extract](https://www.npmjs.com/package/@igor.dvlpr/adblock-header-extract)
 
-[]()
+> _✂️ An npm module that provides ways to extract header and metadata from an Adblock filter file. 📃_
 
-> __
+<br>
 
-[]()
+[@igor.dvlpr/aria](https://www.npmjs.com/package/@igor.dvlpr/aria)
 
-> __
+> _🧬 Meet Aria, an efficient Adblock filter list compiler, with many features that make your maintenance of Adblock filter lists a breeze! 🦖_
 
-[]()
+<br>
 
-> __
+[@igor.dvlpr/biome-config-igorskyflyer](https://www.npmjs.com/package/@igor.dvlpr/biome-config-igorskyflyer)
+
+> _👽 An opinionated config for Biome to be used in JavaScript, TypeScript, JSX, TSX and any JavaScript-related projects. 🐺_
+
+<br>
+
+[@igor.dvlpr/adblock-filter-counter](https://www.npmjs.com/package/@igor.dvlpr/adblock-filter-counter)
+
+> _🐲  A dead simple npm module that counts Adblock filter rules.🦘_
 
 ---
 
