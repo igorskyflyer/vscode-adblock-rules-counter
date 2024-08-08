@@ -65,6 +65,7 @@
 Install the extension and open an Adblock filter project then navigate to any textual file to make the Statusbar item with the counter appear.
 
 <br>
+<br>
 
 <div align="center">
   <figure>
@@ -75,8 +76,9 @@ Install the extension and open an Adblock filter project then navigate to any te
 </div>
 
 <br>
+<br>
 
-> [!NOTE]
+> [!WARN]
 > This extension requires that an extension that provides language support for Adblock files is also installed.
 >
 > Currently, only [Adblock/AdGuard/uBlock filters grammar](https://marketplace.visualstudio.com/items?itemName=adguard.adblock) is available.
