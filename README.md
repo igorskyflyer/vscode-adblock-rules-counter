@@ -66,6 +66,15 @@ Install the extension and open an Adblock filter project then navigate to any te
 
 <br>
 
+<div align="center">
+  <figure>
+    <img src="https://raw.githubusercontent.com/igorskyflyer/vscode-adblock-rules-counter/main/assets/demo.png" alt="Adblock rules counter demonstration image">
+    <figcaption>Figure 1. Adblock rules counter</figcaption>
+  </figure>
+</div>
+
+<br>
+
 > [!NOTE]
 > This extension requires that an extension that provides language support for Adblock files is also installed.
 >
