@@ -1,9 +1,9 @@
-<h1 align="center">{{project}}</h1>
+<h1 align="center">Adblock rules counter for Visual Studio Code</h1>
 
 <br>
 
 <div align="center">
-  {{desc}}
+  📈 A Visual Studio Code extension that counts Adblock rules in a file. 🦎
 </div>
 
 <br>
@@ -61,13 +61,13 @@
 
 ## 📝 Changelog
 
-📑 The changelog is available here: [CHANGELOG.md](https://github.com/igorskyflyer/{{repo}}/blob/main/CHANGELOG.md).
+📑 The changelog is available here: [CHANGELOG.md](https://github.com/igorskyflyer/vscode-adblock-rules-counter/blob/main/CHANGELOG.md).
 
 ---
 
 ## 🪪 License
 
-Licensed under the MIT license which is available here, [MIT license](https://github.com/igorskyflyer/{{repo}}/blob/main/LICENSE).
+Licensed under the MIT license which is available here, [MIT license](https://github.com/igorskyflyer/vscode-adblock-rules-counter/blob/main/LICENSE).
 
 ---
 
