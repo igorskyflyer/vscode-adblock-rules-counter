@@ -42,12 +42,12 @@
 
 ## 📃 Table of contents
 
-- [Features](#-features)
-- [Usage](#-usage)
-- [Changelog](#-changelog)
-- [License](#-license)
-- [Related](#-related)
-- [Author](#-author)
+- [Features](#features)
+- [Usage](#usage)
+- [Changelog](#changelog)
+- [License](#license)
+- [Related](#related)
+- [Author](#author)
 
 ---
 
