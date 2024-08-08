@@ -71,7 +71,7 @@ Install the extension and open an Adblock filter project then navigate to any te
   <figure>
     <img src="https://raw.githubusercontent.com/igorskyflyer/vscode-adblock-rules-counter/main/assets/demo.png" alt="Adblock rules counter demonstration image">
     <br>
-    <figcaption>Figure 1. Adblock rules counter</figcaption>
+    <figcaption><strong>Figure 1.</strong> <em>Adblock rules counter</em></figcaption>
   </figure>
 </div>
 
