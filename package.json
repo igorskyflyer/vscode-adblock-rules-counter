@@ -22,8 +22,25 @@
     "icon": "assets/extension.png",
     "galleryBanner": {
         "color": "#EDEDED",
-        "theme": "dark"
+        "theme": "light"
     },
+    "badges": [
+        {
+            "url": "https://vsmarketplacebadges.dev/installs-short/igordvlpr.adblock-rules-counter.png",
+            "href": "https://marketplace.visualstudio.com/items?itemName=igordvlpr.adblock-rules-counter",
+            "description": "Number of installs for this extension"
+        },
+        {
+            "url": "https://vsmarketplacebadges.dev/rating-star/igordvlpr.adblock-rules-counter.png",
+            "href": "https://marketplace.visualstudio.com/items?itemName=igordvlpr.adblock-rules-counter",
+            "description": "Number of stars for this extension"
+        },
+        {
+            "url": "https://vsmarketplacebadges.dev/version-short/igordvlpr.adblock-rules-counter.png",
+            "href": "https://marketplace.visualstudio.com/items?itemName=igordvlpr.adblock-rules-counter",
+            "description": "The latest version of this extension"
+        }
+    ],
     "markdown": "standard",
     "scripts": {
         "base": "esbuild src/extension.mts --bundle --outfile=dist/extension.js --format=cjs --platform=node --external:vscode --target=node20",
