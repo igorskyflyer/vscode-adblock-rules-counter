@@ -2,7 +2,7 @@
     "name": "adblock-rules-counter",
     "publisher": "igordvlpr",
     "displayName": "Adblock rules counter",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "📈 A Visual Studio Code extension that counts Adblock rules in a file. 🦎",
     "engines": {
         "vscode": "^1.92.0"
@@ -26,22 +26,21 @@
     },
     "badges": [
         {
-            "url": "https://vsmarketplacebadges.dev/version-short/igordvlpr.adblock-rules-counter.png",
+            "url": "https://img.shields.io/visual-studio-marketplace/v/igordvlpr.adblock-rules-counter?style=flat-square",
             "href": "https://marketplace.visualstudio.com/items?itemName=igordvlpr.adblock-rules-counter",
             "description": "The latest version of this extension"
         },
         {
-            "url": "https://vsmarketplacebadges.dev/installs-short/igordvlpr.adblock-rules-counter.png",
+            "url": "https://img.shields.io/visual-studio-marketplace/i/igordvlpr.adblock-rules-counter?style=flat-square&color=%230AB242",
             "href": "https://marketplace.visualstudio.com/items?itemName=igordvlpr.adblock-rules-counter",
             "description": "Number of installs for this extension"
         },
         {
-            "url": "https://vsmarketplacebadges.dev/rating-star/igordvlpr.adblock-rules-counter.png",
+            "url": "https://img.shields.io/visual-studio-marketplace/stars/igordvlpr.adblock-rules-counter?style=flat-square&color=%236D0AB2",
             "href": "https://marketplace.visualstudio.com/items?itemName=igordvlpr.adblock-rules-counter",
             "description": "Number of stars for this extension"
         }
     ],
-    "markdown": "standard",
     "scripts": {
         "base": "esbuild src/extension.mts --bundle --outfile=dist/extension.js --format=cjs --platform=node --external:vscode --target=node20",
         "dev": "npm run -S base -- --sourcemap",
