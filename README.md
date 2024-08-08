@@ -53,13 +53,22 @@
 
 ## 🤖 Features
 
-- 
-- 
-- 
+- 🛸 adds a Statusbar Item with the count of the Adblock rules in the currently open file
+- 🪁 lightweight extension, fast activation time
+- 🧶 does **NOT** validate Adblock rules (**currently**)
+
 
 <br>
 
 ## 🕵🏼 Usage
+
+Install the extension and open an Adblock filter project then navigate to any textual file to make the Statusbar item with the counter appear.
+
+<br>
+
+> [!NOTE]
+> This extension requires that the Adblock language extension is installed. Currently, only [Adblock/AdGuard/uBlock filters grammar](https://marketplace.visualstudio.com/items?itemName=adguard.adblock) is available.
+>
 
 ---
 
