@@ -1,6 +1,6 @@
 ## 📒 Changelog
 
-### of [{{project}}](https://github.com/igorskyflyer/{{repo}})
+### of [Adblock rules counter for Visual Studio Code](https://github.com/igorskyflyer/vscode-adblock-rules-counter)
 
 <br>
 
